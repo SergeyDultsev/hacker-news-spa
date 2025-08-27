@@ -1,13 +1,19 @@
 <script setup lang="ts">
+import router from "@/app/router";
 
+const toHome = () => router.push('/');
 </script>
 
 <template>
   <header class="header">
     <nav class="navbar">
 
-      <!-- Logo -->
-      <div></div>
+      <img
+          class="logo"
+          @click="toHome()"
+          src="@/assets/img/hacker-news-icon.png"
+          alt="logo"
+      />
 
       <ul class="nav-list">
         <li class="nav-item">Best</li>
@@ -23,14 +29,21 @@
 .header {
   width: 100%;
   height: 60px;
-  background-color: var(--orange-color);
+  background-color: var(--write-color);
+  border-bottom: 1px solid var(--gray-color);
+  padding: 10px;
+}
+
+.logo {
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
 }
 
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px;
 }
 
 .nav-list {
@@ -41,8 +54,10 @@
 }
 
 .nav-item {
-  color: var(--orange-color);
-  background-color: var(--write-color);
+  color: var(--write-color);
+  font-size: 16px;
+  font-weight: bold;
+  background-color: var(--orange-color);
   padding: 8px 10px;
   border-radius: var(--border-radius-small);
   transition: all .3s ease-in;

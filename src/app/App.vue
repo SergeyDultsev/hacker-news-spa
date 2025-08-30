@@ -3,10 +3,12 @@ import { computed } from "vue";
 import { useRoute } from "vue-router";
 
 import MainLayout from "@app/layouts/MainLayout.vue";
+import ErrorLayout from "@/app/layouts/ErrorLayout.vue";
 
 const route = useRoute();
 const layout = computed(() => {
   switch (route.meta.layout) {
+    case 'error': return ErrorLayout;
     default: return MainLayout;
   };
 })
@@ -14,9 +16,7 @@ const layout = computed(() => {
 </script>
 
 <template>
-  <component :is="layout">
-    <RouterView />
-  </component>
+  <component :is="layout" />
 </template>
 
 <style scoped></style>

@@ -1,17 +1,11 @@
 <script setup lang="ts">
 import { HeaderApp } from "@widgets";
-
 </script>
 
 <template>
   <section class="main-layout">
-
     <HeaderApp />
-
-    <main class="main">
-
-    </main>
-
+    <main class="main" />
   </section>
 </template>
 

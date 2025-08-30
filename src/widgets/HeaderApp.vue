@@ -1,7 +1,5 @@
 <script setup lang="ts">
-import router from "@/app/router";
-
-const toHome = () => router.push('/');
+import { useToRoute } from "@/shared/lib/useToRoute";
 </script>
 
 <template>
@@ -10,15 +8,15 @@ const toHome = () => router.push('/');
 
       <img
           class="logo"
-          @click="toHome()"
+          @click="useToRoute('/')"
           src="@/assets/img/hacker-news-icon.png"
           alt="logo"
       />
 
       <ul class="nav-list">
-        <li class="nav-item">Best</li>
-        <li class="nav-item">Asks</li>
-        <li class="nav-item">Job</li>
+        <li class="nav-item" @click="useToRoute('/')">Best</li>
+        <li class="nav-item" @click="useToRoute('/asks')">Asks</li>
+        <li class="nav-item" @click="useToRoute('/job')">Job</li>
       </ul>
 
     </nav>
@@ -27,6 +25,9 @@ const toHome = () => router.push('/');
 
 <style scoped>
 .header {
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 60px;
   background-color: var(--write-color);

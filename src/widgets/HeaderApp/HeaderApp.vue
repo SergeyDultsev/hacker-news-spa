@@ -1,6 +1,13 @@
 <script setup lang="ts">
+import {ref, watch} from "vue";
+import { useRoute } from "vue-router";
 import { useToRoute } from "@/shared/lib/useToRoute";
 import { NavLinks } from "@/widgets/HeaderApp/NavLinks";
+
+const route = useRoute();
+const linkIsActive = ref<string>(route.path);
+
+watch(() => route.path, (newPath) => linkIsActive.value = newPath);
 </script>
 
 <template>
@@ -15,8 +22,12 @@ import { NavLinks } from "@/widgets/HeaderApp/NavLinks";
       />
 
       <ul class="nav-list">
-        <li class="nav-item"
-            v-for="link in NavLinks"
+        <li
+            v-for="link in NavLinks" :key="link.path"
+            :class="{
+              'nav-item': linkIsActive !== link.path,
+              'nav-item__active': linkIsActive === link.path
+            }"
             @click="useToRoute(`${ link.path }`)"
         >
           <component :is="link.iconComponent" :size="link.iconSize" />
@@ -79,4 +90,16 @@ import { NavLinks } from "@/widgets/HeaderApp/NavLinks";
   }
 }
 
+.nav-item__active {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--write-color);
+  font-size: 16px;
+  font-weight: 500;
+  padding: 8px 10px;
+  border-radius: var(--border-radius-small);
+  background: var(--orange-color);
+  transition: all .3s ease-in;
+}
 </style>

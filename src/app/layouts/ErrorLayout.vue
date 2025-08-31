@@ -3,14 +3,14 @@
 
 <template>
   <section class="error-layout">
-    <main class="main" />
+    <slot />
   </section>
 </template>
 
 <style scoped>
 .error-layout{
   width: 100%;
-  height: 100%;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;

@@ -2,7 +2,7 @@
 </script>
 
 <template>
-  <div></div>
+  <div>Error 400</div>
 </template>
 
 <style scoped>

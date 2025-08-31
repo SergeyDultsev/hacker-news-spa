@@ -5,7 +5,9 @@ import { HeaderApp } from "@widgets";
 <template>
   <section class="main-layout">
     <HeaderApp />
-    <main class="main" />
+    <main class="main">
+      <slot />
+    </main>
   </section>
 </template>
 
@@ -14,5 +16,6 @@ import { HeaderApp } from "@widgets";
   position: relative;
   width: 100%;
   height: 100vh;
+  padding: 100px;
 }
 </style>

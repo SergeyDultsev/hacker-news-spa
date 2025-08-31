@@ -3,9 +3,7 @@
 </script>
 
 <template>
-  <h2 class="page-name">
 
-  </h2>
 </template>
 
 <style scoped>

@@ -18,7 +18,7 @@ const layout = computed(() => {
 <template>
   <RouterView v-slot="{ Component }">
     <component :is="layout">
-      <component :is="Component" />
+      <component :is="Component" :name="route.meta.name" />
     </component>
   </RouterView>
 </template>

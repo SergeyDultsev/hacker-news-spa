@@ -1,6 +1,12 @@
 <script setup lang="ts">
 import { useToRoute } from "@/shared/lib/useToRoute";
-import { PhChartLineUp, PhQuestion, PhBag } from "@phosphor-icons/vue";
+import {
+  PhChartLineUp,
+  PhArticle,
+  PhQuestion,
+  PhBag,
+  PhMegaphone
+} from "@phosphor-icons/vue";
 </script>
 
 <template>
@@ -18,11 +24,17 @@ import { PhChartLineUp, PhQuestion, PhBag } from "@phosphor-icons/vue";
         <li class="nav-item" @click="useToRoute('/')">
           <PhChartLineUp :size="20" /> Best
         </li>
+        <li class="nav-item" @click="useToRoute('/history')">
+          <PhArticle :size="20" /> History
+        </li>
         <li class="nav-item" @click="useToRoute('/asks')">
           <PhQuestion :size="20" /> Asks
         </li>
-        <li class="nav-item" @click="useToRoute('/job')">
+        <li class="nav-item" @click="useToRoute('/jobs')">
           <PhBag :size="20" /> Job
+        </li>
+        <li class="nav-item" @click="useToRoute('/polls')">
+          <PhMegaphone :size="20" /> Poll
         </li>
       </ul>
 

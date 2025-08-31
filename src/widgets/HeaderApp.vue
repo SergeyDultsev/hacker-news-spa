@@ -16,13 +16,13 @@ import { PhChartLineUp, PhQuestion, PhBag } from "@phosphor-icons/vue";
 
       <ul class="nav-list">
         <li class="nav-item" @click="useToRoute('/')">
-          <PhChartLineUp :size="18" /> Best
+          <PhChartLineUp :size="20" /> Best
         </li>
         <li class="nav-item" @click="useToRoute('/asks')">
-          <PhQuestion :size="18" /> Asks
+          <PhQuestion :size="20" /> Asks
         </li>
         <li class="nav-item" @click="useToRoute('/job')">
-          <PhBag :size="18" /> Job
+          <PhBag :size="20" /> Job
         </li>
       </ul>
 
@@ -67,7 +67,7 @@ import { PhChartLineUp, PhQuestion, PhBag } from "@phosphor-icons/vue";
   gap: 8px;
   color: var(--orange-color);
   font-size: 16px;
-  font-weight: bold;
+  font-weight: 500;
   padding: 8px 10px;
   border: 1px solid var(--orange-color);
   border-radius: var(--border-radius-small);

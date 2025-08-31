@@ -12,13 +12,12 @@ const layout = computed(() => {
     default: return MainLayout;
   };
 })
-
 </script>
 
 <template>
-  <RouterView v-slot="{ Component }">
-    <component :is="layout">
-      <component :is="Component" :name="route.meta.name" />
+  <RouterView v-slot="{ Component, route }">
+    <component :is="layout" :name="route.meta.name">
+      <component :is="Component" />
     </component>
   </RouterView>
 </template>

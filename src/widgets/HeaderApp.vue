@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { useToRoute } from "@/shared/lib/useToRoute";
+import { PhChartLineUp, PhQuestion, PhBag } from "@phosphor-icons/vue";
 </script>
 
 <template>
@@ -14,9 +15,15 @@ import { useToRoute } from "@/shared/lib/useToRoute";
       />
 
       <ul class="nav-list">
-        <li class="nav-item" @click="useToRoute('/')">Best</li>
-        <li class="nav-item" @click="useToRoute('/asks')">Asks</li>
-        <li class="nav-item" @click="useToRoute('/job')">Job</li>
+        <li class="nav-item" @click="useToRoute('/')">
+          <PhChartLineUp :size="18" /> Best
+        </li>
+        <li class="nav-item" @click="useToRoute('/asks')">
+          <PhQuestion :size="18" /> Asks
+        </li>
+        <li class="nav-item" @click="useToRoute('/job')">
+          <PhBag :size="18" /> Job
+        </li>
       </ul>
 
     </nav>
@@ -55,18 +62,21 @@ import { useToRoute } from "@/shared/lib/useToRoute";
 }
 
 .nav-item {
-  color: var(--write-color);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--orange-color);
   font-size: 16px;
   font-weight: bold;
-  background-color: var(--orange-color);
   padding: 8px 10px;
+  border: 1px solid var(--orange-color);
   border-radius: var(--border-radius-small);
   transition: all .3s ease-in;
 
   &:hover {
     cursor: pointer;
     color: var(--write-color);
-    background-color: var(--dark-orange-color);
+    background-color: var(--orange-color);
     transition: all .3s ease-in;
   }
 }

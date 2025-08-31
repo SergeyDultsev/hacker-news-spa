@@ -1,12 +1,6 @@
 <script setup lang="ts">
 import { useToRoute } from "@/shared/lib/useToRoute";
-import {
-  PhChartLineUp,
-  PhArticle,
-  PhQuestion,
-  PhBag,
-  PhMegaphone
-} from "@phosphor-icons/vue";
+import { NavLinks } from "@/widgets/HeaderApp/NavLinks";
 </script>
 
 <template>
@@ -21,20 +15,12 @@ import {
       />
 
       <ul class="nav-list">
-        <li class="nav-item" @click="useToRoute('/')">
-          <PhChartLineUp :size="20" /> Best
-        </li>
-        <li class="nav-item" @click="useToRoute('/history')">
-          <PhArticle :size="20" /> History
-        </li>
-        <li class="nav-item" @click="useToRoute('/asks')">
-          <PhQuestion :size="20" /> Asks
-        </li>
-        <li class="nav-item" @click="useToRoute('/jobs')">
-          <PhBag :size="20" /> Job
-        </li>
-        <li class="nav-item" @click="useToRoute('/polls')">
-          <PhMegaphone :size="20" /> Poll
+        <li class="nav-item"
+            v-for="link in NavLinks"
+            @click="useToRoute(`${ link.path }`)"
+        >
+          <component :is="link.iconComponent" :size="link.iconSize" />
+          {{ link.name }}
         </li>
       </ul>
 

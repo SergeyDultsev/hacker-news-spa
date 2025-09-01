@@ -3,12 +3,6 @@ import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
 export const routes: (RouteRecordRaw & { isProtected: boolean })[] = [
     {
         path: "/",
-        component: () => import("@pages/BestPage.vue"),
-        meta: { name: "Best", layout: 'main' },
-        isProtected: false,
-    },
-    {
-        path: "/history",
         component: () => import("@pages/HistoryPage.vue"),
         meta: { name: "History", layout: 'main' },
         isProtected: false,

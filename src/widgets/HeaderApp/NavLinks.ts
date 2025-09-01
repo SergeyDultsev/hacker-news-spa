@@ -1,6 +1,5 @@
 import {Component} from "vue";
 import {
-    PhChartLineUp,
     PhArticle,
     PhQuestion,
     PhBag,
@@ -16,14 +15,8 @@ export interface INavLinks  {
 
 export const NavLinks: INavLinks[] = [
     {
-        name: "Best",
-        path: "/",
-        iconComponent: PhChartLineUp,
-        iconSize: 20,
-    },
-    {
         name: "History",
-        path: "/history",
+        path: "/",
         iconComponent: PhArticle,
         iconSize: 20,
     },

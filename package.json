@@ -2,9 +2,8 @@
   "name": "hacker-news-spa",
   "author": {
     "name": "Sergey Dultsev",
-    "email": "dultsev010904@gmail.com",
     "github": "https://github.com/SergeyDultsev",
-    "vk": "https://vk.com/sergeydultsev"
+    "telegram": "https://t.me/sergey_dultsev"
   },
   "api": "https://github.com/HackerNews/API",
   "version": "0.0.0",

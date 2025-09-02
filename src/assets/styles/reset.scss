@@ -19,3 +19,12 @@ button {
   border: none;
   cursor: pointer;
 }
+
+a,
+a:active,
+a:hover,
+a:visited,
+a:focus {
+  outline: none;
+  text-decoration: none;
+}

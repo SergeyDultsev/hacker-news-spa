@@ -10,7 +10,13 @@ import { AUTHOR, CONTACT_AUTHOR } from "@/app/config/author";
           class="contact-author__item"
           v-for="contact in CONTACT_AUTHOR" :key="contact.link"
       >
-        {{ contact.title }}
+        <a
+            class="contact-author__link"
+            href="{{ contact.link }}"
+            target="_blank"
+        >
+          {{ contact.title }}
+        </a>
       </li>
     </ul>
   </footer>
@@ -49,6 +55,16 @@ import { AUTHOR, CONTACT_AUTHOR } from "@/app/config/author";
     cursor: pointer;
     color: var(--orange-color);
     transition: all .3s ease-in-out;
+  }
+}
+
+.contact-author__link {
+  color: var(--black-color);
+}
+
+@media screen and (max-width: 500px) {
+  .footer {
+    display: none;
   }
 }
 </style>

@@ -1,12 +1,15 @@
-import { createApp } from 'vue'
-import App from './App.vue'
-import routes from "@/app/router";
-import { pinia } from "@/app/pinia";
-import PhosphorIcons from "@phosphor-icons/vue";
 import "@/assets/styles/global.scss";
 
+import { createApp } from 'vue'
+
+import { setupPinia } from "@/app/lib/setup-pinia";
+import { setupRoutes } from "@/app/lib/setup-router";
+import { setupPhosphorIcons } from "@/app/lib/setup-phosphorIcon";
+
+import App from './App.vue'
+
 const app = createApp(App);
-app.use(routes);
-app.use(pinia);
-app.use(PhosphorIcons);
+setupRoutes(app);
+setupPinia(app);
+setupPhosphorIcons(app);
 app.mount('#app')

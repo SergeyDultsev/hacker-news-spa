@@ -1,28 +1,29 @@
-import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
+import { createRouter, createWebHistory } from "vue-router";
+import { AppRoute } from "@/app/router/types";
 
-export const routes: (RouteRecordRaw & { isProtected: boolean })[] = [
+export const routes: AppRoute[] = [
     {
         path: "/",
         component: () => import("@pages/HistoryPage.vue"),
-        meta: { name: "History", layout: 'main' },
+        meta: { name: "History", layout: "main" },
         isProtected: false,
     },
     {
         path: "/asks",
         component: () => import("@pages/AsksPage.vue"),
-        meta: { name: "Asks", layout: 'main' },
+        meta: { name: "Asks", layout: "main" },
         isProtected: false,
     },
     {
         path: "/jobs",
         component: () => import("@pages/JobsPage.vue"),
-        meta: { name: "Jobs", layout: 'main' },
+        meta: { name: "Jobs", layout: "main" },
         isProtected: false,
     },
     {
         path: "/polls",
         component: () => import("@pages/PollsPage.vue"),
-        meta: { name: "Polls", layout: 'main' },
+        meta: { name: "Polls", layout: "main" },
         isProtected: false,
     },
     {
@@ -33,9 +34,9 @@ export const routes: (RouteRecordRaw & { isProtected: boolean })[] = [
     }
 ];
 
-const index = createRouter({
+const router = createRouter({
     history: createWebHistory(),
     routes
 });
 
-export default index;
+export default router;

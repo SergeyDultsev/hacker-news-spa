@@ -1,21 +1,20 @@
 <script setup lang="ts">
-import { AUTHOR, CONTACT_AUTHOR } from "@/app/config/author";
+import { footerLinks } from "@/widgets/FooterApp/FooterLinks";
 </script>
 
 <template>
   <footer class="footer">
-    <p class="author">{{ AUTHOR }}</p>
-    <ul class="contact-author_list">
+    <ul class="links__list">
       <li
-          class="contact-author__item"
-          v-for="contact in CONTACT_AUTHOR" :key="contact.link"
+          class="links__item"
+          v-for="item in footerLinks" :key="item.link"
       >
         <a
-            class="contact-author__link"
-            href="{{ contact.link }}"
+            class="links__item__link"
+            :href="item.link"
             target="_blank"
         >
-          {{ contact.title }}
+          {{ item.name }}
         </a>
       </li>
     </ul>
@@ -33,19 +32,13 @@ import { AUTHOR, CONTACT_AUTHOR } from "@/app/config/author";
   gap: 10px;
 }
 
-.author {
-  color: var(--orange-color);
-  font-size: 14px;
-  font-weight: 700;
-}
-
-.contact-author_list {
+.links__list {
   display: flex;
   flex-direction: column;
   gap: 8px;
 }
 
-.contact-author__item {
+.links__item {
   color: var(--black-color);
   font-size: 12px;
   font-weight: 400;
@@ -56,9 +49,13 @@ import { AUTHOR, CONTACT_AUTHOR } from "@/app/config/author";
     color: var(--orange-color);
     transition: all .3s ease-in-out;
   }
+
+  &:visited {
+    color: var(--orange-color);
+  }
 }
 
-.contact-author__link {
+.links__item__link {
   color: var(--black-color);
 }
 

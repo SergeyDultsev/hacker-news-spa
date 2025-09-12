@@ -1,9 +1,9 @@
-export interface AppRouteMeta {
+export interface IAppRouteMeta {
     name: string;
     layout: "main" | "error";
 }
 
-export interface AppRoute extends AppRouteMeta {
-    meta: AppRouteMeta;
+export interface IAppRoute extends IAppRouteMeta {
+    meta: IAppRouteMeta;
     isProtected: boolean;
 }

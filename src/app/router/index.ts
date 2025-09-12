@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
-import { AppRoute } from "@/app/router/types";
+import { IAppRoute } from "@/app/router/types";
 
-export const routes: AppRoute[] = [
+export const routes: IAppRoute[] = [
     {
         path: "/",
         component: () => import("@pages/HistoryPage.vue"),

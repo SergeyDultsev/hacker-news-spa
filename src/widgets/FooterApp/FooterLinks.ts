@@ -5,7 +5,7 @@ export interface IFooterLinks {
 
 export const footerLinks: IFooterLinks[] = [
     {
-        name: "Author GitHub",
+        name: "Author's GitHub",
         link: "https://github.com/SergeyDultsev",
     },
     {

@@ -44,9 +44,10 @@ watch(() => route.path, (newPath) => linkIsActive.value = newPath);
   position: fixed;
   top: 0;
   left: 0;
+  z-index: 999;
   width: 100%;
   height: 60px;
-  background-color: var(--write-color);
+  background-color: var(--white-color-blur);
   border-bottom: 1px solid var(--gray-color);
   padding: 10px;
 }

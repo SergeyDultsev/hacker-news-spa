@@ -1,5 +1,9 @@
 <script setup lang="ts">
 
+import { usePostStore } from "@/entities/post/posts";
+import PostItem from "@/entities/post/ui/PostItem.vue";
+
+const postStore = usePostStore();
 </script>
 
 <template>
@@ -13,6 +17,12 @@
     <div class="switcher-stores__item">
       New stores
     </div>
+  </section>
+
+  <section class="post_list" v-for="post in postStore.posts">
+    <PostItem
+        :post="post"
+    />
   </section>
 </template>
 

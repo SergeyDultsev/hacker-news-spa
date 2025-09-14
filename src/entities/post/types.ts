@@ -2,6 +2,7 @@ export interface IPost {
     id: number,
     deleted?: boolean,
     type: 'job' | 'story' | 'ask' | 'comment' | 'poll' | 'pollopt',
+    by: string,
     time: number,
     text: string,
     dead?: boolean,

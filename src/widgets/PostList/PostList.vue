@@ -9,8 +9,9 @@ defineProps<{
 </script>
 
 <template>
-  <section v-for="post in posts">
+  <section class="post-list">
     <PostItem
+        v-for="post in posts"
         :post="post"
         :href="post?.url"
     />
@@ -18,5 +19,10 @@ defineProps<{
 </template>
 
 <style scoped>
-
+.post-list {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 10px;
+}
 </style>

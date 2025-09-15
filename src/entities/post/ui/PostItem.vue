@@ -2,6 +2,7 @@
 
 import { usePostStore } from "@/entities/post/posts";
 import { IPost } from "@/entities/post/types";
+import { formatUnixTime } from "@/shared/utils/formatUnixTime";
 
 const postStore = usePostStore();
 
@@ -17,7 +18,7 @@ defineProps<{
 
       <section class="post-item__meta__list">
         <p class="post-item__meta__item">{{ post.type }}</p>
-        <p class="post-item__meta__item">{{ post.time }}</p>
+        <p class="post-item__meta__item">{{ formatUnixTime(post.time) }}</p>
         <p class="post-item__meta__item">{{ postStore.countPostComments(post.kids) }} comments</p>
       </section>
   </article>

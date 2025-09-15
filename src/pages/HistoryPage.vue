@@ -1,7 +1,7 @@
 <script setup lang="ts">
 
 import { usePostStore } from "@/entities/post/posts";
-import { PostList } from "@/widgets";
+import PostList from "@/entities/post/ui/PostList.vue";
 
 const postStore = usePostStore();
 </script>

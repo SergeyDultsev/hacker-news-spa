@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { usePostStore } from "@/entities/post/posts";
 
-import { HeaderApp } from "@/widgets";
+import {FilterBar, HeaderApp} from "@/widgets";
 import { FooterApp } from "@/widgets";
 
 const postStore = usePostStore();
@@ -20,9 +20,11 @@ defineProps<{
         <slot />
       </section>
     </main>
+
     <section class="page-info__bar">
       <h2 class="page-info__name">{{ name }}</h2>
       <p class="page-info__item">Posts Count: {{ postStore.countPosts }}</p>
+      <FilterBar />
     </section>
 
     <FooterApp />
@@ -70,7 +72,7 @@ defineProps<{
 .page-info__item{
   color: var(--orange-color);
   font-size: 16px;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 @media screen and (max-width: 500px) {

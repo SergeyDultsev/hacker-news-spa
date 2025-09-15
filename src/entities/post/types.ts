@@ -4,7 +4,7 @@ export interface IPost {
     type: 'job' | 'story' | 'ask' | 'comment' | 'poll' | 'pollopt',
     by: string,
     time: number,
-    text: string,
+    text?: string,
     dead?: boolean,
     parent?: number,
     poll?: number,

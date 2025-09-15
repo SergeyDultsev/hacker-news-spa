@@ -5,15 +5,15 @@ export interface IFooterLinks {
 
 export const footerLinks: IFooterLinks[] = [
     {
-        name: "Author's GitHub",
-        link: "https://github.com/SergeyDultsev",
+        name: "API",
+        link: "https://github.com/HackerNews/API",
     },
     {
         name: "Original Site",
         link: "https://news.ycombinator.com/",
     },
     {
-        name: "API",
-        link: "https://github.com/HackerNews/API",
-    }
+        name: "Author's GitHub",
+        link: "https://github.com/SergeyDultsev",
+    },
 ];

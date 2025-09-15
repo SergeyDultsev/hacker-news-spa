@@ -25,10 +25,11 @@ import { footerLinks } from "@/widgets/FooterApp/FooterLinks";
 .footer {
   position: fixed;
   bottom: 0;
-  left: 0;
+  right: 0;
   padding: 20px;
   display: flex;
   flex-direction: column;
+  align-items: end;
   gap: 10px;
 }
 
@@ -40,9 +41,10 @@ import { footerLinks } from "@/widgets/FooterApp/FooterLinks";
 
 .links__item {
   color: var(--black-color);
-  font-size: 12px;
-  font-weight: 400;
+  font-size: 14px;
+  font-weight: 500;
   transition: all .3s ease-in-out;
+  text-align: right;
 
   &:hover {
     cursor: pointer;

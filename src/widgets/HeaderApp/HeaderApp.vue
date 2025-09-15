@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import {ref, watch} from "vue";
 import { useRoute } from "vue-router";
-import { useToRoute } from "@/shared/lib/useToRoute";
+import { toRoute } from "@/shared/utils/toRoute";
 import { NavLinks } from "@/widgets/HeaderApp/NavLinks";
 
 const route = useRoute();
@@ -16,7 +16,7 @@ watch(() => route.path, (newPath) => linkIsActive.value = newPath);
 
       <img
           class="logo"
-          @click="useToRoute('/')"
+          @click="toRoute('/')"
           src="@/assets/img/hacker-news-icon.png"
           alt="logo"
       />
@@ -28,7 +28,7 @@ watch(() => route.path, (newPath) => linkIsActive.value = newPath);
               'nav-item': linkIsActive !== link.path,
               'nav-item__active': linkIsActive === link.path
             }"
-            @click="useToRoute(`${ link.path }`)"
+            @click="toRoute(`${ link.path }`)"
         >
           <component :is="link.iconComponent" :size="link.iconSize" />
           <p class="nav-item__name">{{ link.name }}</p>

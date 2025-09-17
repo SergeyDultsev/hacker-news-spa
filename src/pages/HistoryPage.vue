@@ -7,10 +7,11 @@ import { ENDPOINTS } from "@/shared/api/endpoints";
 import { PER_PAGE } from "@/shared/api/const";
 
 import PostList from "@/entities/post/ui/PostList.vue";
+import { fetchHackerNewsById } from "@/entities/post/lib/fetchHackerNewsById";
 
 const postStore = usePostStore();
 
-const postsId = ref<number[]>([]);
+const postIds = ref<number[]>([]);
 const isLoading = ref<boolean>(false);
 
 onMounted(async () => {
@@ -22,15 +23,10 @@ onMounted(async () => {
     fetchPosts(ENDPOINTS.posts.newstories),
   ]);
 
-  postsId.value = arraysIdx.flat();
-  const idPostsToFetch = postsId.value.slice(0, PER_PAGE);
+  const postsData = await fetchHackerNewsById(arraysIdx, ENDPOINTS.posts.byId, PER_PAGE, fetchPostById);
 
-  const posts = await Promise.all(
-      idPostsToFetch.map((id: number) => fetchPostById(ENDPOINTS.posts.byId(id)))
-  );
-
-  postStore.setPosts(posts);
-  postsId.value.splice(0, PER_PAGE);
+  postStore.setPosts(postsData.posts);
+  postIds.value = postsData.postIds;
   isLoading.value = false;
 });
 </script>

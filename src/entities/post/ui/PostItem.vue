@@ -12,16 +12,18 @@ defineProps<{
 </script>
 
 <template>
-  <article class="post-item">
-      <h2 class="post-item__title">{{ post.title }}</h2>
-      <p class="post-item__text">{{ post.text }}</p>
+  <a :href="post.url" target="_blank" rel="{{ post.url }}">
+    <article class="post-item">
+        <h2 class="post-item__title">{{ post.title }}</h2>
+        <p class="post-item__text">{{ post.text }}</p>
 
-      <section class="post-item__meta__list">
-        <p class="post-item__meta__item">{{ post.type }}</p>
-        <p class="post-item__meta__item">{{ formatUnixTime(post.time) }}</p>
-        <p class="post-item__meta__item">{{ postStore.countPostComments(post.kids) }} comments</p>
-      </section>
-  </article>
+        <section class="post-item__meta__list">
+          <p class="post-item__meta__item">{{ post.type }}</p>
+          <p class="post-item__meta__item">{{ formatUnixTime(post.time) }}</p>
+          <p v-if="post.kids" class="post-item__meta__item">{{ postStore.countPostComments(post.kids) }} comments</p>
+        </section>
+    </article>
+  </a>
 </template>
 
 <style scoped>

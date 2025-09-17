@@ -14,7 +14,6 @@ defineProps<{
     <PostItem
         v-for="post in posts"
         :post="post"
-        :href="post?.url"
     />
   </section>
 

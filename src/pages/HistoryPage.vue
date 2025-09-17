@@ -11,8 +11,11 @@ import PostList from "@/entities/post/ui/PostList.vue";
 const postStore = usePostStore();
 
 const postsId = ref<number[]>([]);
+const isLoading = ref<boolean>(false);
 
 onMounted(async () => {
+  isLoading.value = true;
+
   const arraysIdx = await Promise.all([
     fetchPosts(ENDPOINTS.posts.best),
     fetchPosts(ENDPOINTS.posts.topstories),
@@ -26,13 +29,14 @@ onMounted(async () => {
       idPostsToFetch.map((id: number) => fetchPostById(ENDPOINTS.posts.byId(id)))
   );
 
-  postStore.setPosts(posts)
+  postStore.setPosts(posts);
   postsId.value.splice(0, PER_PAGE);
+  isLoading.value = false;
 });
 </script>
 
 <template>
-  <PostList :posts="postStore.posts" />
+  <PostList :posts="postStore.posts" :isLoading="isLoading" />
 </template>
 
 <style scoped>

@@ -50,10 +50,16 @@ defineProps<{
 }
 
 .post-item__title {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   color: var(--orange-color);
 }
 
 .post-item__text {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   color: var(--orange-color);
 }
 

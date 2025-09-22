@@ -35,7 +35,7 @@ defineProps<{
 .main-layout {
   position: relative;
   width: 100%;
-  padding: 60px 0;
+  padding: 60px 0 0 0;
 }
 
 .main {
@@ -49,7 +49,7 @@ defineProps<{
 
 .main-content {
   padding: 20px;
-  height: 100vh;
+  height: 100%;
 }
 
 .page-info__bar {

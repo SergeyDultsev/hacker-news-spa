@@ -2,6 +2,7 @@
 
 import { IPost } from "@/entities/post/types";
 import PostItem from "@/entities/post/ui/PostItem.vue";
+import LoaderSpinner from "@/shared/ui/ui-loader/LoaderSpinner.vue";
 
 defineProps<{
   posts: IPost[];
@@ -17,9 +18,7 @@ defineProps<{
     />
   </section>
 
-  <section class="post-list" v-else>
-    <p>Load...</p>
-  </section>
+  <LoaderSpinner v-else/>
 </template>
 
 <style scoped>

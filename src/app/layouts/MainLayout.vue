@@ -38,6 +38,8 @@ defineProps<{
 }
 
 .main-content {
+  display: flex;
+  flex-direction: column;
   padding: 20px;
   height: 100%;
 }

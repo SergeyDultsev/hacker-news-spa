@@ -12,9 +12,7 @@ defineProps<{
     <HeaderApp />
 
     <main class="main">
-      <section class="main-content">
-        <slot />
-      </section>
+      <slot />
     </main>
 
     <FooterApp />
@@ -26,6 +24,9 @@ defineProps<{
   position: relative;
   width: 100%;
   padding: 60px 0 0 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 .main {
@@ -35,13 +36,11 @@ defineProps<{
   margin: 0 auto;
   border-left: 1px solid var(--gray-color);
   border-right: 1px solid var(--gray-color);
-}
-
-.main-content {
+  flex: 1;
   display: flex;
   flex-direction: column;
   padding: 20px;
-  height: 100%;
+  overflow-y: auto;
 }
 
 @media screen and (max-width: 500px) {

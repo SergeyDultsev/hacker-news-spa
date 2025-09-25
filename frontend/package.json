@@ -6,6 +6,7 @@
     "telegram": "https://t.me/sergey_dultsev"
   },
   "api": "https://github.com/HackerNews/API",
+  "license": "MIT",
   "version": "0.0.0",
   "private": true,
   "type": "module",

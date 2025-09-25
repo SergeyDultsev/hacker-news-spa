@@ -11,11 +11,10 @@ services:
       - ./backend/.env
     volumes:
       - ./backend:/usr/src/app
-      - /usr/src/app/n0de_modules
+      - /usr/src/app/node_modules
     depends_on:
       - db
-    command:
-      - npm run start:dev
+    command: npm run start
 
   frontend:
     build: ./frontend
@@ -26,16 +25,15 @@ services:
       - ./frontend/.env
     volumes:
       - ./frontend:/app
-      - /usr/src/app/n0de_modules
-    command:
-      - npm run dev
+      - /app/node_modules
+    command: npm run dev
 
   db:
     image: postgres:latest
     container_name: postgres_db
     restart: always
     env_file:
-      - ./backend/.env
+      - ./.env
     environment:
       - POSTGRES_USER=${POSTGRES_USER}
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}

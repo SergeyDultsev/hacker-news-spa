@@ -17,7 +17,7 @@ watch(() => route.path, (newPath) => linkIsActive.value = newPath);
       <img
           class="logo"
           @click="toRoute('/')"
-          src="@/assets/img/hacker-news-icon.png"
+          src="../../assets/img/hacker-news-icon.png"
           alt="logo"
       />
 

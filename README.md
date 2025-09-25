@@ -1,29 +1,48 @@
-# vue-project
+# HACKER NEWS SPA
+Реализация сайта [HACKER NEWS](https://news.ycombinator.com/) с использованием современного fullstack-стека.
 
-This template should help get you started developing with Vue 3 in Vite.
+## Содержание
+- [Возможности](#Возможности)
+- [Технологии](#Технологии)
+- [Установка и запуск](#Установка и запуск)
+- [Автор](#Автор)
 
-## Recommended IDE Setup
+## Возможности
+- Просмотр списка топ-постов с Hacker News API
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+## Технологии
+- [NestJS](https://nestjs.com/)
+- [Vue 3 Composition API](https://vuejs.org/)
+- [Docker](https://www.docker.com/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [SCSS](https://sass-lang.com/)
+- [Redis](https://redis.io/)
 
-## Customize configuration
+## Установка и запуск
+Для установки и запуска проекта, необходим [NodeJS](https://nodejs.org/) v20+.
 
-See [Vite Configuration Reference](https://vite.dev/config/).
-
-## Project Setup
-
-```sh
-npm install
+```bash
+# Клонирование
+git clone https://github.com/yourusername/hacker-news-spa.git
+cd hacker-news-spa
 ```
 
-### Compile and Hot-Reload for Development
-
-```sh
+```bash
+# Запуск фронтенда
+cd frontend
+npm install
 npm run dev
 ```
 
-### Compile and Minify for Production
-
-```sh
-npm run build
+```bash
+# Запуск бэкенда
+cd backend
+npm install
+npm run start:dev
 ```
+
+## Автор
+- [Сергей Дульцев](https://t.me/sergey_dultsev) — FullStack Engineer
+
+## Источники
+- [Hacker News API](https://github.com/HackerNews/API)

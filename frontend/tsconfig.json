@@ -11,7 +11,7 @@
     "isolatedModules": true,
     "skipLibCheck": true,
 
-    "baseUrl": ".",
+    "baseUrl": "..",
     "paths": {
       "@/*": ["src/*"],
       "@app/*": ["app/*"],
@@ -25,5 +25,9 @@
 
     "types": ["vite/client"]
   },
-  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.vue"]
+  "include": [
+    "frontend/src/**/*.ts",
+    "frontend/src/**/*.d.ts",
+    "frontend/src/**/*.vue"
+  ]
 }

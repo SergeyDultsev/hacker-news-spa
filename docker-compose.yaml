@@ -14,6 +14,9 @@ services:
       - /usr/src/app/node_modules
     depends_on:
       - db
+      - redis
+    networks:
+      - HN
     command: npm run start
 
   frontend:
@@ -26,6 +29,8 @@ services:
     volumes:
       - ./frontend:/app
       - /app/node_modules
+    networks:
+      - HN
     command: npm run dev
 
   db:
@@ -39,14 +44,29 @@ services:
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
       - POSTGRES_DB=${POSTGRES_DB}
     ports:
-      - 5432:5432
+      - '5432:5432'
     volumes:
       - db_data:/var/lib/postgresql/data
     networks:
       - HN
 
+  redis:
+    image: redis:latest
+    container_name: redis
+    restart: unless-stopped
+    environment:
+      - REDIS_USER=${REDIS_USER}
+      - REDIS_PASSWORD=${REDIS_PASSWORD}
+      - REDIS_USER_PASSWORD=${REDIS_USER_PASSWORD}
+    ports:
+      - '6379:6379'
+    volumes:
+      - ./redis_data:/data
+    command: ["redis-server", "--appendonly", "yes"]
+
 volumes:
   db_data:
+  redis_data:
 
 networks:
   HN:

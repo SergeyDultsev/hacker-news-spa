@@ -3,3 +3,7 @@
 .idea
 node_modules
 .env
+
+redis_data/
+dump.rdb
+appendonly.aof

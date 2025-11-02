@@ -1,35 +1,46 @@
 import {
   Controller,
   Get,
-  Post,
-  Body,
   Param,
-  Delete,
 } from '@nestjs/common';
 import { PostService } from './post.service';
-import { CreatePostDto } from './dto/create-post.dto';
 
-@Controller('post')
+@Controller('posts')
 export class PostController {
   constructor(private readonly postService: PostService) {}
 
-  @Post()
-  create(@Body('postId') createPostDto: CreatePostDto) {
-    return this.postService.create(createPostDto);
+  @Get('/tops')
+  getTopStores() {
+    return this.postService.findTop();
   }
 
-  @Get()
-  findAll() {
-    return this.postService.findAll();
+  @Get('/news')
+  getNewStores() {
+    return this.postService.findNew();
+  }
+
+  @Get('/bests')
+  getBestStores() {
+    return this.postService.findBest();
+  }
+
+  @Get('/asks')
+  getAskStores() {
+    return this.postService.findAsk();
+  }
+
+  @Get('/shows')
+  getShowStores() {
+    return this.postService.findShow();
+  }
+
+  @Get('/jobs')
+  getJobStores() {
+    return this.postService.findJob();
   }
 
   @Get(':postId')
   findOne(@Param('postId') id: string) {
     return this.postService.findOne(+id);
-  }
-
-  @Delete(':postId')
-  remove(@Param('postId') id: string) {
-    return this.postService.remove(+id);
   }
 }

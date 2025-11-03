@@ -1,32 +1,36 @@
 import { Injectable } from '@nestjs/common';
+import { PostApiService } from '../external/hacker-news/post/post.service';
 
 @Injectable()
 export class PostService {
-  findTop() {
-    return `This action returns top posts`;
+  constructor(private postApiService: PostApiService) {}
+
+  async Tops() {
+    const ids: number[] = await this.postApiService.getPostsFetch('topstories');
+    return Promise.all(ids.slice(0, 50).map(postId => this.postApiService.getPost(postId)));
   }
 
-  findNew() {
+  async News() {
     return `This action returns new posts`;
   }
 
-  findBest() {
+  async Bests() {
     return `This action returns best posts`;
   }
 
-  findAsk() {
+  async Asks() {
     return `This action returns ask posts`;
   }
 
-  findShow() {
+  async Shows() {
     return `This action returns show posts`;
   }
 
-  findJob() {
+  async Jobs() {
     return `This action returns job posts`;
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} post`;
+  async getPostById(postId: number | string) {
+    return `This action returns a #${postId} post`;
   }
 }

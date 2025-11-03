@@ -11,36 +11,36 @@ export class PostController {
 
   @Get('/tops')
   getTopStores() {
-    return this.postService.findTop();
+    return this.postService.Tops();
   }
 
   @Get('/news')
   getNewStores() {
-    return this.postService.findNew();
+    return this.postService.News();
   }
 
   @Get('/bests')
   getBestStores() {
-    return this.postService.findBest();
+    return this.postService.Bests();
   }
 
   @Get('/asks')
   getAskStores() {
-    return this.postService.findAsk();
+    return this.postService.Asks();
   }
 
   @Get('/shows')
   getShowStores() {
-    return this.postService.findShow();
+    return this.postService.Shows();
   }
 
   @Get('/jobs')
   getJobStores() {
-    return this.postService.findJob();
+    return this.postService.Jobs();
   }
 
   @Get(':postId')
-  findOne(@Param('postId') id: string) {
-    return this.postService.findOne(+id);
+  getPost(@Param('postId') id: string) {
+    return this.postService.getPostById(+id);
   }
 }

@@ -1,14 +1,15 @@
 import { Injectable } from '@nestjs/common';
 import { HttpService } from "@nestjs/axios";
-import { firstValueFrom } from 'rxjs';
+import { firstValueFrom, timeout } from 'rxjs';
 import { retry } from 'rxjs/operators';
-import { Post } from '../../../post/entities/post.entity';
+import { IPost } from "src/post/entities/types";
 
 @Injectable()
 export class PostApiService {
     constructor(private readonly http: HttpService) {}
 
     private readonly url = process.env.HACKER_NEWS_API || 'https://hacker-news.firebaseio.com/v0';
+    private readonly timeout = 5000;
 
     async getPostsFetch(
         endpoint:
@@ -18,10 +19,32 @@ export class PostApiService {
             | 'askstories'
             | 'showstories'
             | 'jobstories'
-    ): Promise<Post[]> {
-        const { data } = await firstValueFrom(
-            this.http.get(`${this.url}/${endpoint}.json`).pipe(retry(1))
-        );
-        return data;
+    ): Promise<number[]> {
+        try {
+            const { data } = await firstValueFrom(
+                this.http.get(`${this.url}/${endpoint}.json`).pipe(
+                    retry(1),
+                    timeout(this.timeout)
+                )
+            );
+            return data;
+        } catch (e) {
+            console.error(e);
+        }
+    }
+
+    async getPost(postId: number | string): Promise<IPost> {
+        try {
+            const { data } = await firstValueFrom(
+                this.http.get(`${this.url}/item/${postId}.json`).pipe(
+                    retry(1),
+                    timeout(this.timeout)
+                )
+            );
+            console.log(data)
+            return data;
+        } catch (e) {
+            console.error(e);
+        }
     }
 }

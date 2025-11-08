@@ -17,7 +17,7 @@ const isLoading = ref<boolean>(false);
 onMounted(async () => {
   isLoading.value = true;
 
-  const arrayIdx: number[] = await fetchPosts(ENDPOINTS.posts.askstories);
+  const arrayIdx: number[] = await fetchPosts(ENDPOINTS.posts.asks);
   const postsData = await fetchHackerNewsById(arrayIdx, ENDPOINTS.posts.byId, PER_PAGE, fetchPostById);
 
   postsStore.setPosts(postsData.posts);

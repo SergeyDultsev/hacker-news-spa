@@ -19,13 +19,13 @@ onMounted(async () => {
 
   const arraysIdx = await Promise.all([
     fetchPosts(ENDPOINTS.posts.best),
-    fetchPosts(ENDPOINTS.posts.topstories),
-    fetchPosts(ENDPOINTS.posts.newstories),
+    fetchPosts(ENDPOINTS.posts.tops),
+    fetchPosts(ENDPOINTS.posts.news),
   ]);
 
   const postsData = await fetchHackerNewsById(arraysIdx, ENDPOINTS.posts.byId, PER_PAGE, fetchPostById);
 
-  postStore.setPosts(postsData.posts);
+  postStore.setPosts(postsData);
   postIds.value = postsData.postIds;
   isLoading.value = false;
 });

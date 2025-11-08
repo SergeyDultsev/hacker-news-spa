@@ -11,23 +11,28 @@ export class PostService {
   }
 
   async News() {
-    return `This action returns new posts`;
+    const ids: number[] = await this.postApiService.getPostsFetch('newstories');
+    return Promise.all(ids.slice(0, 50).map(postId => this.postApiService.getPost(postId)));
   }
 
   async Bests() {
-    return `This action returns best posts`;
+    const ids: number[] = await this.postApiService.getPostsFetch('beststories');
+    return Promise.all(ids.slice(0, 50).map(postId => this.postApiService.getPost(postId)));
   }
 
   async Asks() {
-    return `This action returns ask posts`;
+    const ids: number[] = await this.postApiService.getPostsFetch('askstories');
+    return Promise.all(ids.slice(0, 50).map(postId => this.postApiService.getPost(postId)));
   }
 
   async Shows() {
-    return `This action returns show posts`;
+    const ids: number[] = await this.postApiService.getPostsFetch('showstories');
+    return Promise.all(ids.slice(0, 50).map(postId => this.postApiService.getPost(postId)));
   }
 
   async Jobs() {
-    return `This action returns job posts`;
+    const ids: number[] = await this.postApiService.getPostsFetch('jobstories');
+    return Promise.all(ids.slice(0, 50).map(postId => this.postApiService.getPost(postId)));
   }
 
   async getPostById(postId: number | string) {

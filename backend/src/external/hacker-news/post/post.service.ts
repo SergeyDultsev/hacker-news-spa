@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { HttpService } from "@nestjs/axios";
 import { firstValueFrom, timeout } from 'rxjs';
 import { retry } from 'rxjs/operators';
-import { IPost } from "src/post/entities/types";
+import { IPost } from 'src/resources/post/entities/types';
 
 @Injectable()
 export class PostApiService {
@@ -41,7 +41,6 @@ export class PostApiService {
                     timeout(this.timeout)
                 )
             );
-            console.log(data)
             return data;
         } catch (e) {
             console.error(e);

@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { PostApiService } from '../external/hacker-news/post/post.service';
+import { PostApiService } from '../../external/hacker-news/post/post.service';
 
 @Injectable()
 export class PostService {
@@ -31,6 +31,6 @@ export class PostService {
   }
 
   async getPostById(postId: number | string) {
-    return `This action returns a #${postId} post`;
+    return await this.postApiService.getPost(postId);
   }
 }

@@ -6,6 +6,8 @@ COPY package*.json ./
 
 RUN npm i
 
-EXPOSE 8080
+COPY . .
 
-CMD ["npm", "run", "start:dev"]
+EXPOSE 5173
+
+CMD ["sh", "-c", "npm run dev"]

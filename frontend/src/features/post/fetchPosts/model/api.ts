@@ -1,7 +1,8 @@
 import { api } from "@/shared/api/axios";
+import { IPost } from "@/entities/post/types";
 
-export async function fetchPosts (endpoint: string): Promise<number[]>
+export const fetchPosts = async (endpoint: string) : Promise<IPost[]> =>
 {
-    const response  = await api.get<number[]>(endpoint);
+    const response  = await api.get<IPost[]>(endpoint);
     return response.data;
 }

@@ -3,7 +3,6 @@ import {
     PhArticle,
     PhQuestion,
     PhBag,
-    PhMegaphone
 } from "@phosphor-icons/vue";
 
 export interface INavLinks  {
@@ -30,12 +29,6 @@ export const NavLinks: INavLinks[] = [
         name: "Job",
         path: "/jobs",
         iconComponent: PhBag,
-        iconSize: 20,
-    },
-    {
-        name: "Polls",
-        path: "/polls",
-        iconComponent: PhMegaphone,
         iconSize: 20,
     },
 ];

@@ -21,12 +21,6 @@ export const routes: IAppRoute[] = [
         isProtected: false,
     },
     {
-        path: "/polls",
-        component: () => import("@pages/PollsPage.vue"),
-        meta: { name: "Polls", layout: "main" },
-        isProtected: false,
-    },
-    {
         path: "/error/not-found",
         component: () => import("@pages/NotFoundPage.vue"),
         meta: { name: "Not-found", layout: "error" },

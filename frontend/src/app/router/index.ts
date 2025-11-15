@@ -28,8 +28,14 @@ export const routes: IAppRoute[] = [
     },
     {
         path: "/auth",
-        component: () => import("@pages/auth/AuthPage.vue"),
-        meta: { name: "Auth", layout: "main" },
+        component: () => import("@pages/auth/AuthPage/AuthPage.vue"),
+        meta: { name: "Auth", layout: "auth" },
+        isProtected: false,
+    },
+    {
+        path: "/register",
+        component: () => import("@pages/auth/RegisterPage/RegisterPage.vue"),
+        meta: { name: "Register", layout: "auth" },
         isProtected: false,
     },
     {

@@ -1,10 +1,6 @@
 <script setup lang="ts">
 import { HeaderApp } from "@/widgets";
 import { FooterApp } from "@/widgets";
-
-defineProps<{
-  name?: string
-}>();
 </script>
 
 <template>
@@ -19,7 +15,7 @@ defineProps<{
   </section>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 .main-layout {
   position: relative;
   width: 100%;

@@ -1,6 +1,6 @@
 export interface IAppRouteMeta {
     name: string;
-    layout: "main" | "error";
+    layout: "main" | "error" | "auth";
 }
 
 export interface IAppRoute extends IAppRouteMeta {

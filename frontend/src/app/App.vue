@@ -4,11 +4,13 @@ import { useRoute } from "vue-router";
 
 import MainLayout from "@app/layouts/MainLayout.vue";
 import ErrorLayout from "@/app/layouts/ErrorLayout.vue";
+import AuthLayout from "@/app/layouts/AuthLayout.vue";
 
 const route = useRoute();
 const layout = computed(() => {
   switch (route.meta.layout) {
     case 'error': return ErrorLayout;
+    case 'auth': return AuthLayout;
     default: return MainLayout;
   };
 })
@@ -22,4 +24,4 @@ const layout = computed(() => {
   </RouterView>
 </template>
 
-<style scoped></style>
+<style scoped lang="scss"></style>

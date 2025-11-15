@@ -1,16 +1,15 @@
 <script setup lang="ts">
+
 </script>
 
 <template>
-  <section class="error-layout">
+  <section class="auth-layout">
     <slot />
   </section>
 </template>
 
 <style scoped lang="scss">
-.error-layout{
-  width: 100%;
-  height: 100vh;
+.auth-layout {
   display: flex;
   justify-content: center;
   align-items: center;

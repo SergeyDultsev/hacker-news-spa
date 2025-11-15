@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { onMounted, ref } from "vue";
-import { usePostStore } from "@/entities/post/posts";
-import { getPosts } from "@/features/post/api";
-import { ENDPOINTS } from "@/shared/api/endpoints";
+import { usePostStore } from "@entities/post/posts";
+import { getPosts } from "@features/post/api";
+import { ENDPOINTS } from "@shared/api/endpoints";
 import { IPost } from "@entities/post/types";
-import PostList from "@/entities/post/ui/PostList.vue";
+import PostList from "@entities/post/ui/PostList.vue";
 
 const postStore = usePostStore();
 

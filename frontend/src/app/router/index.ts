@@ -4,20 +4,32 @@ import { IAppRoute } from "@/app/router/types";
 export const routes: IAppRoute[] = [
     {
         path: "/",
-        component: () => import("@pages/HistoryPage.vue"),
+        component: () => import("@pages/history/HistoryPage.vue"),
         meta: { name: "History", layout: "main" },
         isProtected: false,
     },
     {
         path: "/asks",
-        component: () => import("@pages/AsksPage.vue"),
+        component: () => import("@pages/ask/AsksPage.vue"),
         meta: { name: "Asks", layout: "main" },
         isProtected: false,
     },
     {
         path: "/jobs",
-        component: () => import("@pages/JobsPage.vue"),
+        component: () => import("@pages/job/JobsPage.vue"),
         meta: { name: "Jobs", layout: "main" },
+        isProtected: false,
+    },
+    {
+        path: "/profile",
+        component: () => import("@pages/profile/ProfilePage.vue"),
+        meta: { name: "Profile", layout: "main" },
+        isProtected: false,
+    },
+    {
+        path: "/auth",
+        component: () => import("@pages/auth/AuthPage.vue"),
+        meta: { name: "Auth", layout: "main" },
         isProtected: false,
     },
     {

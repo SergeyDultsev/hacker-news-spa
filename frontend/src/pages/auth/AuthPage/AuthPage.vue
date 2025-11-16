@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { AuthForm } from "@/widgets";
-import { toRoute } from "@shared/utils/toRoute";
+import router from "@app/router";
 </script>
 
 <template>
@@ -11,8 +11,8 @@ import { toRoute } from "@shared/utils/toRoute";
     </template>
     
     <template #links>
-      <p class="auth-form__link" @click="toRoute('/register')">Register</p>
-      <p class="auth-form__link" @click="toRoute('/')">To Main</p>
+      <p class="auth-form__link" @click="router.push('/register')">Register</p>
+      <p class="auth-form__link" @click="router.push('/')">To Main</p>
     </template>
   </AuthForm>
 </template>

@@ -1,17 +1,20 @@
 <script setup lang="ts">
-import {computed, ref, watch} from "vue";
+import { computed, ref, watch } from "vue";
 import { useRoute } from "vue-router";
-import { toRoute } from "@/shared/utils/toRoute";
 import { NavLinks, type INavLinks } from "@/widgets/HeaderApp/NavLinks";
+import { useUserStore } from "@entities/user/user";
+import router from "@app/router";
+
+const userStore = useUserStore();
 
 const route = useRoute();
 const linkIsActive = ref<string>(route.path);
-const isAuth = ref<boolean>(false);
+const isAuth = userStore.isAuth;
 
 const filteredLinks = computed(() => {
   return NavLinks.filter((link: INavLinks) => {
     if (link.isAuth === undefined) return true;
-    return link.isAuth === isAuth.value;
+    return link.isAuth === isAuth;
   });
 });
 
@@ -24,7 +27,7 @@ watch(() => route.path, (newPath) => linkIsActive.value = newPath);
 
       <img
           class="logo"
-          @click="toRoute('/')"
+          @click="router.push('/')"
           src="../../assets/img/hacker-news-icon.png"
           alt="logo"
       />
@@ -36,7 +39,7 @@ watch(() => route.path, (newPath) => linkIsActive.value = newPath);
               'nav-item': linkIsActive !== link.path,
               'nav-item__active': linkIsActive === link.path
             }"
-            @click="toRoute(`${ link.path }`)"
+            @click="router.push(`${ link.path }`)"
         >
           <component :is="link.iconComponent" :size="link.iconSize" />
           <p class="nav-item__name">{{ link.name }}</p>

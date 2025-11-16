@@ -1,9 +1,22 @@
 <script setup lang="ts">
-import { RegisterForm } from "@/widgets";
+import { AuthForm } from "@/widgets";
+import { toRoute } from "@shared/utils/toRoute";
 </script>
 
 <template>
-  <RegisterForm />
+  <AuthForm title="Register" type="register">
+    <template #fields>
+      <input class="auth-form__input" type="text" placeholder="Name" />
+      <input class="auth-form__input" type="text" placeholder="Email" />
+      <input class="auth-form__input" type="text" placeholder="Password" />
+      <input class="auth-form__input" type="text" placeholder="Required Password" />
+    </template>
+
+    <template #links>
+      <p class="auth-form__link" @click="toRoute('/auth')">Authorization</p>
+      <p class="auth-form__link" @click="toRoute('/')">To Main</p>
+    </template>
+  </AuthForm>
 </template>
 
 <style scoped lang="scss">

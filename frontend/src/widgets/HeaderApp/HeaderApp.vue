@@ -1,11 +1,19 @@
 <script setup lang="ts">
-import {ref, watch} from "vue";
+import {computed, ref, watch} from "vue";
 import { useRoute } from "vue-router";
 import { toRoute } from "@/shared/utils/toRoute";
-import { NavLinks } from "@/widgets/HeaderApp/NavLinks";
+import { NavLinks, type INavLinks } from "@/widgets/HeaderApp/NavLinks";
 
 const route = useRoute();
 const linkIsActive = ref<string>(route.path);
+const isAuth = ref<boolean>(false);
+
+const filteredLinks = computed(() => {
+  return NavLinks.filter((link: INavLinks) => {
+    if (link.isAuth === undefined) return true;
+    return link.isAuth === isAuth.value;
+  });
+});
 
 watch(() => route.path, (newPath) => linkIsActive.value = newPath);
 </script>
@@ -23,7 +31,7 @@ watch(() => route.path, (newPath) => linkIsActive.value = newPath);
 
       <ul class="nav-list">
         <li
-            v-for="link in NavLinks" :key="link.path"
+            v-for="link in filteredLinks" :key="link.path"
             :class="{
               'nav-item': linkIsActive !== link.path,
               'nav-item__active': linkIsActive === link.path

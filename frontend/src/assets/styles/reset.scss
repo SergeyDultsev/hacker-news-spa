@@ -20,6 +20,11 @@ button {
   cursor: pointer;
 }
 
+input, select, textarea {
+  outline: none;
+  border: none;
+}
+
 a,
 a:active,
 a:hover,

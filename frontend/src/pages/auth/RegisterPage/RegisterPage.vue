@@ -4,7 +4,7 @@ import router from "@app/router";
 </script>
 
 <template>
-  <AuthForm title="Register" type="register">
+  <AuthForm title="Sign Up" type="register">
     <template #fields>
       <input class="auth-form__input" type="text" placeholder="Name" />
       <input class="auth-form__input" type="text" placeholder="Email" />
@@ -13,7 +13,7 @@ import router from "@app/router";
     </template>
 
     <template #links>
-      <p class="auth-form__link" @click="router.push('/auth')">Authorization</p>
+      <p class="auth-form__link" @click="router.push('/auth')">Sign In</p>
       <p class="auth-form__link" @click="router.push('/')">To Main</p>
     </template>
   </AuthForm>

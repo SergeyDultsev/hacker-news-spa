@@ -18,7 +18,7 @@ defineProps<{
         type="submit"
         class="auth-form__button"
     >
-      Register
+      Create Account
     </button>
 
     <button
@@ -26,7 +26,7 @@ defineProps<{
         type="submit"
         class="auth-form__button"
     >
-      Auth
+      Sing In
     </button>
 
     <div class="auth-form__links">
@@ -63,7 +63,18 @@ defineProps<{
   }
 
   &__button {
+    background-color: var(--orange-color);
+    color: var(--write-color);
+    font-family: "Tomorrow";
+    font-size: 14px;
+    border-radius: var(--border-radius-small);
+    padding: 10px 12px;
     margin: 20px auto 0;
+
+    &:hover {
+      transition: all .3s;
+      background-color: var(--dark-orange-color);
+    }
   }
 
   &__links {
@@ -72,6 +83,20 @@ defineProps<{
     align-items: center;
     justify-content: center;
     gap: 8px;
+  }
+
+  :deep(.auth-form__input) {
+    font-family: "Tomorrow";
+    border-bottom: 1px solid var(--gray-color);
+    padding: 10px 3px;
+
+    &::placeholder {
+      font-size: 14px;
+    }
+
+    &:focus {
+      border-bottom: 1px solid var(--orange-color);
+    }
   }
 
   :deep(.auth-form__link) {

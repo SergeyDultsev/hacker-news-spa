@@ -26,20 +26,9 @@
 # Клонирование
 git clone https://github.com/yourusername/hacker-news-spa.git
 cd hacker-news-spa
-```
 
-```bash
-# Запуск фронтенда
-cd frontend
-npm install
-npm run dev
-```
-
-```bash
-# Запуск бэкенда
-cd backend
-npm install
-npm run start:dev
+# Запуск докера
+docker compose up -d --build
 ```
 
 ## Автор

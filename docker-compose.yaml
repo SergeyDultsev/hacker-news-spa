@@ -9,7 +9,6 @@ services:
       - ./backend/.env
     volumes:
       - ./backend:/usr/src/app:cached
-      - /usr/src/app/node_modules
     environment:
       - CHOKIDAR_USEPOLLING=true
     depends_on:

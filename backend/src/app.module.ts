@@ -5,6 +5,7 @@ import { AppService } from './app.service';
 import { UserModule } from './resources/user/user.module';
 import { PostModule } from './resources/post/post.module';
 import { CommentModule } from './resources/comment/comment.module';
+import { AuthModule } from './resources/auth/auth.module';
 
 @Module({
   imports: [
@@ -20,7 +21,8 @@ import { CommentModule } from './resources/comment/comment.module';
       }),
       UserModule,
       PostModule,
-      CommentModule
+      CommentModule,
+      AuthModule
   ],
   controllers: [AppController],
   providers: [AppService],

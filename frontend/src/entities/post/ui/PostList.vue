@@ -18,7 +18,7 @@ defineProps<{
     />
   </section>
 
-  <LoaderSpinner v-else/>
+  <LoaderSpinner v-else />
 </template>
 
 <style scoped>

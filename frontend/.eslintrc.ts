@@ -12,6 +12,8 @@ module.exports = {
         sourceType: 'module',
     },
     extends: [
+        'eslint:recommended',
+        'plugin:@typescript-eslint/recommended',
         'plugin:vue/vue3-recommended',
     ],
     plugins: [
@@ -20,7 +22,8 @@ module.exports = {
     rules: {
         'vue/multi-word-component-names': 'off',
 
-        'no-unused-vars': ['warn', {
+        'no-unused-vars': 'off',
+        '@typescript-eslint/no-unused-vars': ['warn', {
             vars: 'all',
             args: 'after-used',
             ignoreRestSiblings: false,

@@ -1,5 +1,4 @@
 <script setup lang="ts">
-
 import { usePostStore } from "@/entities/post/posts";
 import { IPost } from "@/entities/post/types";
 import { formatUnixTime } from "@/shared/utils/formatUnixTime";
@@ -12,18 +11,20 @@ defineProps<{
 </script>
 
 <template>
-  <a :href="post.url" target="_blank" rel="{{ post.url }}">
+  <router-link
+      target="_blank"
+      :to="`/post/${post.id}`"
+  >
     <article class="post-item">
         <h2 class="post-item__title">{{ post.title }}</h2>
-        <p class="post-item__text">{{ post.text }}</p>
 
-        <section class="post-item__meta__list">
+        <div class="post-item__meta__list">
           <p class="post-item__meta__item">{{ post.type }}</p>
           <p class="post-item__meta__item">{{ formatUnixTime(post.time) }}</p>
           <p v-if="post.kids" class="post-item__meta__item">{{ postStore.countPostComments(post.kids) }} comments</p>
-        </section>
+        </div>
     </article>
-  </a>
+  </router-link>
 </template>
 
 <style scoped>

@@ -5,17 +5,17 @@ import { useUserStore } from "@entities/user/user";
 export const routes: IAppRoute[] = [
     {
         path: "/",
-        component: () => import("@pages/history/HistoryPage.vue"),
+        component: () => import("@pages/posts/history-page/HistoryPage.vue"),
         meta: { name: "History", layout: "main", isProtected: false, },
     },
     {
         path: "/asks",
-        component: () => import("@pages/ask/AsksPage.vue"),
+        component: () => import("@pages/posts/asks-page/AsksPage.vue"),
         meta: { name: "Asks", layout: "main", isProtected: false },
     },
     {
         path: "/jobs",
-        component: () => import("@pages/job/JobsPage.vue"),
+        component: () => import("@pages/posts/jobs-page/JobsPage.vue"),
         meta: { name: "Jobs", layout: "main", isProtected: false },
     },
     {
@@ -25,13 +25,18 @@ export const routes: IAppRoute[] = [
     },
     {
         path: "/auth",
-        component: () => import("@pages/auth/AuthPage/AuthPage.vue"),
+        component: () => import("@pages/auth/auth-page/AuthPage.vue"),
         meta: { name: "Auth", layout: "auth", isProtected: false },
     },
     {
         path: "/register",
-        component: () => import("@pages/auth/RegisterPage/RegisterPage.vue"),
+        component: () => import("@pages/auth/register-page/RegisterPage.vue"),
         meta: { name: "Register", layout: "auth", isProtected: false, },
+    },
+    {
+        path: "/post/:id",
+        component: () => import("@pages/posts/post-page/PostPage.vue"),
+        meta: { name: "Post", layout: "main", isProtected: false },
     },
     {
         path: "/:pathMatch(.*)*",

@@ -1,15 +1,24 @@
 <script setup lang="ts">
 import { useRoute } from "vue-router";
-import { onMounted, ref } from "vue";
+import {computed, onMounted, ref} from "vue";
 import type { IPost } from "@entities/post/types";
 import { getPostById } from "@features/post/api";
 import { formatUnixTime } from "@shared/utils/formatUnixTime";
 import LoaderSpinner from "@shared/ui/ui-loader/LoaderSpinner.vue";
+import { htmlDecoder } from "@shared/utils/htmlDecoder";
 
 const route = useRoute();
 
 const isLoading = ref<boolean>(false);
 const postData = ref<IPost | null>(null);
+
+const decodedTextContent = computed(() => {
+  if (!postData.value?.text) {
+    return '';
+  } else {
+    return htmlDecoder(postData.value?.text);
+  }
+})
 
 onMounted(async () => {
   const postId = Array.isArray(route.params.id)
@@ -31,7 +40,7 @@ onMounted(async () => {
           <p class="post-meta__item">public: {{ formatUnixTime(postData.time) }}</p>
         </div>
 
-        <p class="post-text">{{ postData.text }}</p>
+        <div class="post-text" v-html="decodedTextContent" />
     </div>
 
     <LoaderSpinner v-if="isLoading" />
@@ -55,6 +64,12 @@ onMounted(async () => {
 
   &-meta__item {
     font-size: 16px;
+    color: var(--orange-color);
+  }
+
+  &-text {
+    padding: 12px 0 0 0;
+    font-size: 18px;
     color: var(--orange-color);
   }
 }
